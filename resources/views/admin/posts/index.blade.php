@@ -19,12 +19,16 @@
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">標題</th>
+            <th scope="col" style="text-align:left">標題</th>
+            <th scope="col" style="text-align:right">精選?</th>
             <th scope="col">功能</th>
         </tr>
         </thead>
         <tbody>
         @foreach($posts as $post)
+        <a href="{{ route('posts.show', $post->id) }}">
+        {{ $post->title }}
+        {{ Str::limit($post->content, 30) }}
             <tr>
                 <th scope="row" style="width: 50px">{{ $post->id }}</th>
                 <td>{{ $post->title }}</td>
